@@ -1,0 +1,42 @@
+<div class="row my-4" *ngIf="Movies; else noMovies">
+  <div class="col-md-3 mb-2" *ngFor="let Movie of Movies">
+    <div class="card">
+      <!-- <img
+        src="{{ 'https://image.tmdb.org/t/p/w500/' + Movie.backdrop_path }}"
+        class="card-img-top"
+        alt="{{ Movie.title }}"
+      /> -->
+      <img src="" class="card-img-top" alt="{{ Movie.title }}" />
+      <div class="card-body">
+        <h5 class="card-title">{{ Movie.title }}</h5>
+        <p class="card-text">
+          {{ Movie.overview | slicer : 0 : 100 }}
+        </p>
+        <app-rating-decimal
+          [rating]="Movie.vote_average / 2"
+        ></app-rating-decimal>
+        <div class="d-flex justify-content-between align-items-center my-2">
+          <span class="text-black-50">Add To Wish List</span>
+          <app-toast-global
+            class="Wish"
+            (click)="onAddToWish(Movie)"
+            [msg]="messagesMap.get(Movie.id) || 'Add'"
+          ></app-toast-global>
+          <!-- <fa-icon
+            [icon]="faHeart"
+            class="Wish"
+            (click)="onAddToWish(Movie)"
+          ></fa-icon> -->
+        </div>
+        <a
+          class="btn btn-primary details"
+          [routerLink]="['/movieDetails', Movie.title]"
+          >Show Details</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #noMovies>
+  <!-- <app-Spinner></app-Spinner> -->
+</ng-template>

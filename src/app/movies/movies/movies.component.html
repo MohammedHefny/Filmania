@@ -1,0 +1,7 @@
+<app-movie [Movies]="Movies" *ngIf="loading"></app-movie>
+<app-Spinner *ngIf="!loading"></app-Spinner>
+
+<app-pagination-customization
+  *ngIf="loading"
+  (myEvent)="pageNum($event)"
+></app-pagination-customization>

@@ -1,0 +1,26 @@
+<div *ngIf="loading" class="card mb-3">
+  <img
+    src="{{ 'https://image.tmdb.org/t/p/w500/' + movie?.poster_path }}"
+    class="card-img-top"
+    alt="{{ movie?.title }}"
+    class="posterImg"
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{ movie?.title }}</h5>
+    <p class="card-text">
+      {{ movie?.overview }}
+    </p>
+    <p class="card-text">
+      <small class="text-body-secondary">status: {{ movie?.status }}</small>
+    </p>
+    <p class="card-text">
+      <small class="text-body-secondary">tagline: {{ movie?.tagline }}</small>
+    </p>
+    <p class="card-text">
+      <small class="text-body-secondary"
+        >Rating: {{ movie?.vote_average }}</small
+      >
+    </p>
+  </div>
+</div>
+<app-Spinner *ngIf="!loading"></app-Spinner>

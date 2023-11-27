@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+@import './app/shared/_custom-variables';
+
+// the bootstrap icon to show the hearts 
+@import '~bootstrap-icons/font/bootstrap-icons.css';
+
+// @import '../node_modules/bootstrap/scss/bootstrap.scss';
+
+:root {
+    --main-color: #7F0504;
+    --main-color-alt: #995C4F;
+    --secondary-color: #FFE5DA;
+    --secondary-color-alt: #00C8F3;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
